@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+	<link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+	<link href='style/site.css' rel='stylesheet'>
+	<link href='style/siteInfantil.css' rel='stylesheet'>
+	<script type="text/javascript">
+		
+		window.HTMLCollection.prototype.forEach = function(func){
+			for (var x=0; this.length > x; x++){
+				func.apply(this,[this.item(x),x])
+			}
+		}
+		
+		window.HTMLCollection.prototype.addClass=function(nmClass){
+			var rx = new RegExp("\\b"+nmClass+"\\b")
+			this.forEach(function(obj){
+				console.log(rx.test(obj.className)+"---"+nmClass+"----"+obj.className)
+				if (rx.test(obj.className) == false)
+				   obj.className = obj.className+" "+nmClass
+			})
+		}
+
+		var arrImgObj = []
+		window.onload = function(){
+			var posAtual = 0
+            var imgs = ['IMG/_DSC8882.jpg','IMG/_DSC8905.jpg','IMG/_DSC8930.JPG']
+            var cont = 1
+			document.getElementById('fundo').style['background-image']="url("+imgs[0]+")"
+			setInterval(function(){
+				cont=(cont == imgs.length)?0:cont
+               document.getElementById('fundo').style['background-image']="url("+imgs[cont]+")"
+               cont += 1 
+			},3000)
+
+			var imgc = ["img/ESCADA_FUND1.jpg","img/ESCADA_INFANTIL.jpg","img/KIDS_INTEGRAL.jpg","img/BIBLIOTECA_FUND1.jpg","img/BIBLIOTECA_EM.jpg","img/ARTES_FUND2.jpg"]
+			
+			imgc.forEach(function(nameImg,i){
+				var imgd = document.createElement("img")
+				imgd.className = "img-carrossel"
+				imgd.src=nameImg
+				imgd.style.left = i*337+"px"
+				arrImgObj.push(imgd)
+				document.getElementById('roleta').appendChild(imgd)
+			})
+
+			var turnLeft = function(){
+				var ultima = null
+				arrImgObj.forEach(function(img,i){
+                  var left = Number(img.style.left.replace("px",""))
+                  if (left < 0) {
+                  	ultima = i
+                  	img.style.zIndex = 0;
+                  	img.style.left = (337*(arrImgObj.length-1))+"px"
+                  }
+				})
+				arrImgObj.forEach(function(img,i){
+                  var left = Number(img.style.left.replace("px",""))
+                  if (i != ultima)
+                  	 img.style.zIndex = 1;
+                  img.style.left = (left-337)+"px"
+				})
+
+			}
+
+			setInterval(turnLeft,3000)
+
+            document.getElementById("bC").onclick = function() {
+                   window.scrollBy(0, -99999);
+            	}
+    			    			
+
+            var position = function(){
+          	   posAtual = window.pageYOffset
+          	   document.getElementById('fundo').style.backgroundPosition="center "+((posAtual/2)*-1)+"px"
+          	   if (posAtual > 0){
+          	   		document.getElementById('top').className="top ative"
+          	   		document.getElementById('top').style="background-color:#363636 "
+          	   		document.getElementById('branco').className="branco"
+          	   		document.getElementById('colorido').className="colorido ative"
+          	     }
+          	   	else{
+          	   		document.getElementById('top').className="top"
+          	   		document.getElementById('top').style="background-color:transparent"
+          	   		document.getElementById('branco').className="branco ative"
+          	   		document.getElementById('colorido').className="colorido"
+          	     }
+          	     var
+          	     posDiv1 = document.getElementById("ImgA").offsetTop,
+          	     posText = document.getElementById("textoParteSuperiorQuadro").offsetTop	
+          	     if ((posText - posAtual) <= 450){
+				//--- texto da página
+					var doc = document.getElementById("textoParteSuperiorQuadro"),
+					collSpan = doc.getElementsByTagName("span")
+					collSpan.addClass("open")
+
+					document.getElementById("imagem22").style.transform = "translate(0px,0px)"
+					document.getElementById("imagem22").style.opacity = "1"
+					document.getElementById("imagem22").style.display = "block"
+				}
+
+				if ((posDiv1 - posAtual) <= 400){
+					document.getElementById("ImgA").style.transform = "translate(0px,0px)"
+					document.getElementById("ImgA").style.opacity = "1"
+					document.getElementById("ImgA").style.display = "block"
+					document.getElementById("ImgB").style.transform = "translate(0px,0px)"
+					document.getElementById("ImgB").style.opacity = "1"
+					document.getElementById("ImgB").style.display = "block"
+					document.getElementById("ImgC").style.transform = "translate(0px,0px)"
+					document.getElementById("ImgC").style.opacity = "1"
+					document.getElementById("ImgC").style.display = "block"
+
+					document.getElementById("ImgA2").style.transform = "translate(0px,0px)"
+					document.getElementById("ImgA2").style.opacity = "1"
+					document.getElementById("ImgA2").style.display = "block"
+					document.getElementById("ImgB2").style.transform = "translate(0px,0px)"
+					document.getElementById("ImgB2").style.opacity = "1"
+					document.getElementById("ImgB2").style.display = "block"
+					document.getElementById("ImgC2").style.transform = "translate(0px,0px)"
+					document.getElementById("ImgC2").style.opacity = "1"
+					document.getElementById("ImgC2").style.display = "block"
+					document.getElementById("ImgD2").style.transform = "translate(0px,0px)"
+					document.getElementById("ImgD2").style.opacity = "1"
+					document.getElementById("ImgD2").style.display = "block"
+					document.getElementById("ImgE2").style.transform = "translate(0px,0px)"
+					document.getElementById("ImgE2").style.opacity = "1"
+					document.getElementById("ImgE2").style.display = "block"
+				}												
+			}
+			window.addEventListener('scroll',position)
+			position()
+		}
+
+	</script>
+	<title></title>
+<meta charset="utf-8">
+</head>
+<body class="body" background="">
+	
+	<div class="mestre">
+		<div class="top" id="top">
+			<input type="checkbox" style="display:none" name="chkMenu" id="chkMenu">
+			<label class="menuB" for="chkMenu"></label>
+			<div class="foto">
+		  		<img src="img/logo_site_novo_branco.png" class="branco" id="branco" width="302px">
+		  		<img src="img/logo_site_novo_colorido.png" class="colorido" id="colorido" width="302px">
+		    </div>
+		  
+			<div class ="opcoes">
+		 		<a href="index.html">HOME</a>
+		 		<a href="colegio.html">QUEM SOMOS</a>
+		 		<a href="educacaoinfantil.html">ED. INFANTIL</a>
+		 		<a href="ensinoFundamental.html">ED. FUNDAMENTAL</a>
+		 		<a href="ensinomedio.html">EN. MÉDIO</a>
+		 		<a href="eventos.html">EVENTOS</a>
+		 		<a href="matriculas.html">MÁTRICULA</a>
+			</div>
+			<div class="login">
+		  		<form action="XxXxXxXxXxXxXxXx">
+		  			<input type="text" name="cod" placeholder="Login">
+		  			<input type="password" name="codigo" placeholder="Senha">
+		  			<input type="hidden" name="niv_usu" value="1">
+		  			<button id="buttonAcessar">Acessar</button>
+		  		</form>
+			</div>
+		</div>
+	</div>		
+
+	<div class="fundo" id="fundo">
+		<div class="titlePag">EDUCAÇÃO INFANTIL<p style="font-size: 20px; font-family:">(O FUTURO COMEÇA AQUI)</p></div>
+	</div>
+    
+	<div class="contentPagina">
+		<div class="contentPagina2">
+		<div class="infantilContent">
+			<div id="textoParteSuperiorQuadro">
+		    	<span class="tituloPagina">EDUCAÇÃO INFANTIL</span>
+		    	<span>
+		    	<p>A Educação Infantil é a primeira fase da Educação Básica, desta forma, o trabalho dos profissionais do Colégio tem como finalidade o desenvolvimento integral da criança, em seus aspectos físico, intelectual, social e psicológico, complementando a ação da família.</p>
+		    	</span>
+		    	<span>
+				<p>A criança é estimulada à ampliar suas experiências, seu sendo de autonomia, preparando-se para o processo de construção da escrita e da leitura que visam a formação de hábitos de pensamento e ação.</p>
+				</span>
+				<span>
+                Todos os nossos colaboradores além do profissionalismo fazem com o a escola seja um extensão de sua casa, então o carinho e a atenção com alunos se tornam essenciais.
+                </span>
+                <div class="imagem1">
+			   		<img src="img/meninoInfantil.png" style="width:320px;" >
+				</div>	
+				<span class="tituloPagina">ATIVIDADES EXTRAS</span>
+                <div class="infantilExtra">
+					<div class="atividadeExtra" id="ImgA">
+						<img src="img/karate.png" class="imgAtividadesExtras">
+						<div>Karatê </div>
+					</div>
+					<div class="atividadeExtra" id="ImgB">
+						<img src="img/DSC_8473.png" class="imgAtividadesExtras">
+						<div>Educação Física </div>
+					</div>
+					<div class="atividadeExtra" id="ImgC">
+						<img src="img/DSC_9348.png" class="imgAtividadesExtras">
+						<div>Dança </div>
+					</div>
+				</div>
+			</div>
+			<div class="imagem2" id="imagem22">
+			   	<img src="img/meninoInfantil.png" class="menino">
+			</div>					     	 
+		</div>
+				<div class="infantilExtra">
+					<div class="atividadeExtraBaixo" id="ImgA2">
+						<img src="img/tablet.png" class="imgAtividadesExtrasBaixo">
+						<div>Aulas com Tablet </div>
+					</div>
+					<div class="atividadeExtraBaixo" id="ImgB2">
+						<img src="img/N/Aingles." class="imgAtividadesExtrasBaixo">
+						<div>inglês</div>
+					</div>
+					<div class="atividadeExtraBaixo" id="ImgC2">
+						<img src="img/musica.png" class="imgAtividadesExtrasBaixo">
+						<div>Música </div>
+					</div>
+					<div class="atividadeExtraBaixo" id="ImgD2">
+						<img src="img/culinaria.png" class="imgAtividadesExtrasBaixo">
+						<div>Culinária </div>
+					</div>
+					<div class="atividadeExtraBaixo" id="ImgE2">
+						<img src="img/N/APsicomotricidade.png" class="imgAtividadesExtrasBaixo">
+						<div>Psicomotricidade </div>
+					</div>
+				</div>
+	  </div>
+	</div>
+			
+		<div class="layout" style="display: inline-flex;flex-direction: row;justify-content: center;background-image: url(./img/faxada.jpg); color: white;">
+				<div class="widgets">
+						<div style="box-shadow: 5px 3px 3px 3px #cecdcd;border-radius: 29px;padding: 20px;background-color: whitesmoke;">
+					<iframe id="map" height="436" width="435" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com.br/maps?f=q&amp;hl=pt-BR&amp;geocode=&amp;q=Rua+Dona+Antônia,+1288+-+Gopouva+-+Guarulhos+-+SP&amp;sll=-14.179186,-50.449219&amp;sspn=71.686975,157.5&amp;ie=UTF8&amp;s=AARTsJoODSfQWoVGJJnURA1rcL6t9edlug&amp;ll=-23.468521,-46.544094&amp;spn=0.031492,0.047207&amp;z=14&amp;output=embed"></iframe>
+					<iframe id="MbMap" height="436" width="335" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com.br/maps?f=q&amp;hl=pt-BR&amp;geocode=&amp;q=Rua+Dona+Antônia,+1288+-+Gopouva+-+Guarulhos+-+SP&amp;sll=-14.179186,-50.449219&amp;sspn=71.686975,157.5&amp;ie=UTF8&amp;s=AARTsJoODSfQWoVGJJnURA1rcL6t9edlug&amp;ll=-23.468521,-46.544094&amp;spn=0.031492,0.047207&amp;z=14&amp;output=embed"></iframe>
+					</div>
+					<div class="contContato">
+						<table class="tbContato" style="font-size: 15pt">
+                			<tbody>
+                   				<tr>
+                    				<td colspan="2" align="center" style="font-size: 20pt">
+                        				Fone:(11)2463-3900 <br> secretaria@cvdm.com.br<br>
+                        			</td>
+                    			</tr>
+                    			<tr>    
+                        		<td colspan="2">
+                        			<div id="load" style="display:none; background:url(img/load.gif) rgba(255,255,255,1.00) center no-repeat; height:40px">
+                    				Enviando.....
+                   					</div>
+                       			</td>
+                    			</tr>
+                				<tr>
+                       			<td colspan="2" align="center">
+                        			<input type="text" name="nome" id="nome" class="fcs" placeholder="NOME">
+                        		</td>
+                    			</tr>
+                    			<tr>
+                        		<td colspan="2" align="center">
+                        <input type="tel" name="fone" id="fone" class="fcs" placeholder="TELEFONE">
+                        </td>
+                    </tr>
+                    <tr>
+
+                        <td colspan="2" align="center">
+                        <input type="email" name="email" id="email" class="fcs" placeholder="E-MAIL">
+                        </td>
+                    </tr>
+                    <tr>
+
+                        <td colspan="2" align="center">
+                        <textarea name="mensagem" id="mensagem" class="fcs" placeholder="MENSAGEM"></textarea>
+                        </td>
+                    </tr>
+                    <tr>
+                    	<td>
+                        Área de interesse:
+                        </td>
+                        <td>
+                        <div style="display:block; float:left; width:50%">
+                        	<input type="checkbox" name="interesse" value="secretaria">Secretaria
+                        </div>
+                        <div style="display:block; float:left; width:50%">
+                        	<input type="checkbox" name="interesse" value="pedagogico">Pedagógico
+                        </div>    
+                        <div style="display:block; float:left; width:50%">
+                        	<input type="checkbox" name="interesse" value="diretoria">Direção
+                        </div>
+                        <div style="display:block; float:left; width:50%">
+                        	<input type="checkbox" name="interesse" value="financeiro">Financeiro
+                        </div>    
+                        
+                        </td>
+                    </tr>
+                    <tr>
+                    <td colspan="2" align="center">
+                    <button style="margin:10px;padding:6px; width:50%; cursor:pointer; border:solid 1px #fff; background-color:rgba(30,155,153,1.00); color:rgba(255,255,255,1.00); border-radius: 25px;">Enviar</button>
+                    
+                    </td>
+                    </tr>
+                		</tbody>
+            		</table>
+				  </div>
+				</div>
+		</div>
+
+		<div  class="redeSocial">
+		 <div class="redeSocialContent">
+			<div class="layout">
+				<iframe id="face" src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fcolegiovm&tabs=timeline&width=500&height=500&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" width="500" height="500" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
+				<iframe id="MbFace" src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fm.facebook.com%2Fcolegiovm%2F%3Frefsrc%3Dhttps%253A%252F%252Fwww.facebook.com%252Fplugins%252Fpage.php&tabs=timeline&width=300&height=500&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" width="300" height="500" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
+			</div>
+		 </div>
+		</div>
+
+			<center><div class="roleta" id="roleta"></div></center>
+
+			<div id="rodape" class="rodape">
+			 <div class="rodapeAll">
+				<div id="rodape-itemsA" class="rodape-items"><center><p>Mapa do Site</p></center>
+                  <ul class="ulRodape">
+                  	<li><a href="colegio.html">QUEM SOMOS</a></li>
+		 			<li><a href="educacaoinfantil.html">ED. INFANTIL</a></li>
+		 			<li><a href="ensinofundamental.html">ED. FUNDAMENTAL</a></li>
+		 			<li><a href="ensinomedio.html">EN. MÉDIO</a></li>
+                  </ul>
+				</div>
+				<div id="rodape-items" class="rodape-items"><center><p>Área Restrita</p></center>
+					<center>
+					<div class="login-rodape">
+		  				<form name="f2" action="XxXxXxXxXxXxXxXx" style="display: flex; flex-direction: column;">
+		  					<input type="text" name="cod" placeholder="Login">
+		  					<input type="password" name="codigo" placeholder="Senha">
+		  					<input type="hidden" name="niv_usu" value="1">
+		  					<button id="buttonAcessar">Acessar</button>
+		  				</form>
+		  				<div class="endMobile">
+		  					<center>
+							<p>Contato</p>
+							(11) 2463-3900<br>
+							Rua Dona Antônia, 1288<br>
+							Gopouva – Guarulhos SP
+							</center>
+						</div>
+				    </center>
+				</div>
+				<div id="rodape-itemsC" class="rodape-items">
+					<center>
+					<p>Contato</p>
+					(11) 2463-3900<br>
+					Rua Dona Antônia, 1288<br>
+					Gopouva – Guarulhos SP
+					</center>
+				</div>
+            </div>
+		</div>
+		<div class="vt" id="bC"><center><h1 style="margin-top: 0px;">^</h1></center></div>
+</body>
+</html>

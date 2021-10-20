@@ -1,0 +1,205 @@
+.fundo{
+	margin-bottom: 0;
+}
+.fundoQcs{
+	background-image: none;
+}
+.titleEM{
+    text-align: center;
+}
+.contEF{
+	display: block;
+	flex-direction: row;
+	width: auto;
+	margin: auto;
+	background-color: #fff;
+	padding: 0;
+    background: url(../img/fundopag.png);
+}
+.imgEF{
+	box-shadow: 2px 2px 5px grey;
+	height: 220px;
+	width: 300px;
+}
+.contentEF{
+    padding:30px 0;
+    background-color: rgba(255,255,255,0.70) 
+}
+.contentEF h2{
+	color: #848181;
+	font-size: 25pt;
+	margin-bottom: 10px;
+	margin-top: 0;
+}
+h2{
+	display: block;
+	margin-block-start:0.83em;
+	margin-block-end:0.83em;
+	margin-inline-start:0px;
+	margin-inline-end:0px;
+	font-weight: bold;
+}
+.contTXT{
+	display: flex;
+    flex-direction: column;
+    padding-top: 50px;
+    padding-left: 175px;
+}
+.txtEM{
+	width: auto;
+	display: flex;
+    font-size: 17px;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.titleExtra{
+ 	display: flex;
+    box-shadow: 3px 3px 3px grey;
+    background-image: linear-gradient(grey, darkgrey);
+    width: 100%;
+    height: 50px;
+    font-size: 25pt;
+    color: white;
+    margin-top: -50px;
+    justify-content: center;
+}
+.ativExtra{
+	padding-top: 10px;
+	display: flex;
+	flex-direction: row;
+	width: 100%;
+}
+.ativExtra div{
+	margin-top: 10px;
+    margin-right: 8px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 3px 3px 2px grey;
+    background-color: darkgrey;
+    color: white;
+}
+.horaAula{
+	margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+}
+.titleAula{
+	color: white;
+	background-image: linear-gradient(grey, darkgrey);
+    box-shadow: 0px 0px 3px grey;
+    width: 100%;
+}
+.contAula{
+	box-shadow: 2px 2px 2px grey;
+    margin-left: 15px;
+    color: #3a3a3a;
+    font-size: 15pt;
+    width: 450px;
+    height: 100px;
+    text-align: center;
+    background-image: linear-gradient(#ffffff, #c5c5c5);
+}
+.layout{
+    width:100%;
+    justify-content: center;
+    display: flex;
+    background-size: cover;
+}
+.contContato{
+    display: block;
+    position: inherit;
+    padding-left: 50px;
+}
+#MbMap{
+    width: 345px;
+}
+.tituloPagina{
+        color: #ffdf00;
+    font-size: 24pt;
+    text-shadow: 1px 1px 1px #000000;
+    margin-bottom: 10px;
+}
+#textoParteSuperiorQuadro{
+    width: 42%;
+    height: auto;
+    text-align: justify;
+    margin-right: 10px;
+    font-size: 10pt;
+}
+    #textoParteSuperiorQuadro span:nth-child(even){
+        transition: 1s all .3s;
+    }
+    #textoParteSuperiorQuadro span:nth-child(odd) {
+        transition: 1s all .4s;
+    }
+    #textoParteSuperiorQuadro span{
+        display:inline-block;
+        opacity: 0;
+        -ms-transform:translate(-50px,0px);
+        transform:translate(-50px,0px);
+    }
+    
+    #textoParteSuperiorQuadro span.open{
+        opacity: 1;
+        -ms-transform:translate(0px,0px);
+        transform:translate(0px,0px);
+    }
+    .imagemSuperior{
+        height: 300px;
+        padding-top: 0px;
+    }
+    #imgSuperior{
+        height: 300px;
+        opacity: 0;
+        -ms-transform:translate(-50px,0px);
+        transform:translate(-50px,0px);
+        transition: 1s all .4s;
+    }
+@media only screen and (max-width: 750px){
+    #textoParteSuperiorQuadro{
+        width: 90vw;
+        height: auto;
+        margin-right: 0px;
+    }
+    #imgSuperior{
+        height: 210px;
+    }
+    .imagemSuperior{
+        padding-top: 60px;
+    }
+    .contEF{
+        width: 100vw;
+    }
+    .titleEM{
+        width: 100vw;
+        text-align: center;
+    }
+    .contTXT{
+        width: 100vw;
+        padding-left: 0px;
+    }
+    .txtEM{
+        justify-content: center;
+        margin: 0;
+        margin-left: 0%;
+        width: 100%;
+    }
+    #txt{
+    text-align: initial;
+    width: 100%;
+    margin-right: 0;
+    }
+    .layout{
+        width: 100vw;
+        justify-content: center;
+        display: flex;
+    }
+    .contContato{
+        display: none;
+    }
+    #MbMap{
+        width: auto;
+    }
+    
+}

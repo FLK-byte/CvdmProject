@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+	<link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+	<link href='style/site.css' rel='stylesheet'>
+	
+	<script type="text/javascript">
+		var arrImgObj = []
+		window.onload = function(){
+			var posAtual = 0
+            var imgs = ['IMG/BIBLIOTECA_FUND1.jpg','IMG/ESCADA_FUND1.jpg','IMG/KIDS_INTEGRAL.JPG']
+            var cont = 1
+			document.getElementById('fundo').style['background-image']="url("+imgs[0]+")"
+			setInterval(function(){
+				cont=(cont == imgs.length)?0:cont
+               document.getElementById('fundo').style['background-image']="url("+imgs[cont]+")"
+               cont += 1 
+			},3000)
+
+			var imgc = ["img/roleta1.jpg","img/roleta2.jpg","img/roleta3.jpg","img/roleta4.jpg","img/roleta5.jpg","img/roleta6.jpg"]
+			
+			imgc.forEach(function(nameImg,i){
+				var imgd = document.createElement("img")
+				imgd.className = "img-carrossel"
+				imgd.src=nameImg
+				imgd.style.left = i*337+"px"
+				arrImgObj.push(imgd)
+				document.getElementById('roleta').appendChild(imgd)
+			})
+
+			var turnLeft = function(){
+				var ultima = null
+				arrImgObj.forEach(function(img,i){
+                  var left = Number(img.style.left.replace("px",""))
+                  if (left < 0) {
+                  	ultima = i
+                  	img.style.zIndex = 0;
+                  	img.style.left = (337*(arrImgObj.length-1))+"px"
+                  }
+				})
+				arrImgObj.forEach(function(img,i){
+                  var left = Number(img.style.left.replace("px",""))
+                  if (i != ultima)
+                  	 img.style.zIndex = 1;
+                  img.style.left = (left-337)+"px"
+				})
+
+			}
+
+			setInterval(turnLeft,3000)
+
+            document.getElementById("bC").onclick = function() {
+                   window.scrollBy(0, -99999);
+            	}
+    			    			
+
+            var position = function(){
+          	   posAtual = window.pageYOffset
+          	   document.getElementById('fundo').style.backgroundPosition="center "+((posAtual/2)*-1)+"px"
+          	   var v =  document.getElementById('top').offsetHeight
+          	   console.log(posAtual +"--iH="+(window.innerHeight/2)+"--top="+(window.innerHeight - v))
+
+			   if (posAtual>=(window.innerHeight/2) &&  posAtual<=(window.innerHeight - v)){
+          	   	  document.getElementById('layout').style.backgroundPosition="center "+(window.innerHeight-(posAtual))+"px"
+          	   }
+          	   else{
+ 				  if (posAtual >= (window.innerHeight - v))
+ 				  	 document.getElementById('layout').style.backgroundPosition="center "+((v))+"px"
+          	   }
+
+          	   
+          	   //
+          	   if (posAtual > 0) 
+          	   	{
+          	   		document.getElementById('top').className="top ative"
+          	   		document.getElementById('top').style="background-color:#363636 "
+          	   		document.getElementById('branco').className="branco"
+          	   		document.getElementById('colorido').className="colorido ative"
+          	     }
+          	   	else{
+          	   		document.getElementById('top').className="top"
+          	   		document.getElementById('top').style="background-color:transparent"
+          	   		document.getElementById('branco').className="branco ative"
+          	   		document.getElementById('colorido').className="colorido"
+          	     }
+				var 
+				posLogo = document.getElementsByClassName("lema").item(0).offsetTop,
+				posQC1 = document.getElementById("imgQC1").offsetTop,
+				posQC2 = document.getElementById("imgQC2").offsetTop,
+				posQC3 = document.getElementById("imgQC3").offsetTop
+
+
+				if ((posQC1 - posAtual) <= 450){
+					document.getElementById("imgQC1").style.transform = "translate(0px,0px)"
+					document.getElementById("imgQC1").style.opacity = "1"
+					document.getElementById("imgQC1").style.display = "block"
+					document.getElementById("txtQC1").style.transform = "translate(0px,0px)"
+					document.getElementById("txtQC1").style.opacity = "1"
+					document.getElementById("txtQC1").style.display = "block"
+				}
+
+				if ((posQC2 - posAtual) <= 450){
+					document.getElementById("imgQC2").style.transform = "translate(0px,0px)"
+					document.getElementById("imgQC2").style.opacity = "1"
+					document.getElementById("imgQC2").style.display = "block"
+					document.getElementById("txtQC2").style.transform = "translate(0px,0px)"
+					document.getElementById("txtQC2").style.opacity = "1"
+					document.getElementById("txtQC2").style.display = "block"
+
+				}
+
+				if ((posQC3 - posAtual) <= 450){
+					document.getElementById("imgQC3").style.transform = "translate(0px,0px)"
+					document.getElementById("imgQC3").style.opacity = "1"
+					document.getElementById("imgQC3").style.display = "block"
+					document.getElementById("txtQC3").style.transform = "translate(0px,0px)"
+					document.getElementById("txtQC3").style.opacity = "1"
+					document.getElementById("txtQC3").style.display = "block"
+				}
+					
+			}
+			window.addEventListener('scroll',position)
+			position()
+		}
+
+	</script>
+	<title></title>
+<meta charset="utf-8">
+</head>
+<body class="body" background="">
+	
+	<div class="mestre">
+		<div class="top" id="top">
+			<input type="checkbox" style="display:none" name="chkMenu" id="chkMenu">
+			<label class="menuB" for="chkMenu"></label>
+			<div class="foto">
+		  		<img src="img/logo_site_novo_branco.png" class="branco" id="branco" width="302px">
+		  		<img src="img/logo_site_novo_colorido.png" class="colorido" id="colorido" width="302px">
+		    </div>
+		  
+			<div class ="opcoes">
+		 		<a href="index.html">HOME</a>
+		 		<a href="colegio.html">QUEM SOMOS</a>
+		 		<a href="educacaoinfantil.html">ED. INFANTIL</a>
+		 		<a href="ensinoFundamental.html">FUNDAMENTAL</a>
+		 		<a href="ensinomedio.html">MÉDIO</a>
+		 		<a href="eventos.html">EVENTOS</a>
+		 		<a href="matriculas.html">MATRÍCULA</a>
+			</div>
+			<div class="login">
+				<form action="XxXxXxXxXxXxXxXx">
+		  			<input type="text" name="cod" placeholder="Login">
+		  			<input type="password" name="codigo" placeholder="Senha">
+		  			<input type="hidden" name="niv_usu" value="1">
+		  			<button id="buttonAcessar">Acessar</button>
+		  		</form>
+			</div>
+		</div>
+	</div>		
+
+	<div class="fundo" id="fundo">
+		<div class="titlePag">O FUTURO COMEÇA AQUI</div>
+	</div>
+		<div class="layout" id="layout" style=" width: 100vw;height:50vh; background-image: url(img/FUNDO_TEXTO.jpg); background-repeat: no-repeat; background-size: 100% 50vh;">
+			<div class="lema">
+				<div id="txtLema">"Nós nos educamos a cada instante de nossas vidas. Seja conversando com nossos pais
+					e amigos, seja lendo um livro. Educação é um processo de transformação, de crescimento
+					interior, no qual descobrimos o mundo que nos cerca e o mundo nos descobre também.
+					Educação é troca. Um processo subjetivo, vivido no momento em que cada um se percebe
+					aprendendo alguma coisa nova."<span id="nomeLema"> Eduardo Shimahara</span>
+				</div>
+			</div>
+		</div>
+		<div class="fundoQcs">
+			<div class="contentQcs">
+				<div class="qcs">
+					<div class="qc1">
+						<div class="quadroQC"> 
+							<img src="img/QC_laranja.png" id="imgQC1">
+							<div id="txtQC1">
+								<h2><a href="educacaoinfantil.html">Educação Infantil</a></h2>
+								A Educação Infantil é a primeira fase da Educação Básica, desta forma, o trabalho dos profissionais do Colégio tem como finalidade o desenvolvimento integral da criança, em seus aspectos físico, intelectual, social e psicológico, complementando a ação da família.
+							</div>	
+						</div>
+					</div>
+					<div class="qc2">
+						<div class="quadroQC"> 
+							
+							<div id="txtQC2">
+								<h2><a href="ensinoFundamental.html">Ensino Fundamental</a></h2>	
+								Nesta etapa do desenvolvimento da criança, o trabalho pedagógico é voltado para o pleno domínio da leitura, da escrita e do cálculo. Paralelamente o aluno é estimulado a compreender os sistemas políticos, tecnológicos, artísticos e os valores em que se fundamenta a sociedade.
+							</div>
+							<img src="img/QC_chumbo.png" id="imgQC2">
+						</div>	
+					</div>
+					<div class="qc3">
+						<div class="quadroQC"> 
+							<img src="img/QC_amarelo.png" id="imgQC3">
+							<div id="txtQC3">
+								<h2><a href="ensinomedio.html">Ensino Médio</a></h2>
+								Dando continuidade ao trabalho iniciado no Ensino Fundamental, o Colégio Vinícius de Moraes desenvolve no Ensino Médio um conteúdo onde seus alunos serão preparados para o vestibular. Poderão também desenvolver aptidão para a escolha da profissão.
+							</div>
+						</div>	
+					</div>
+				</div>
+			</div>	
+		</div>
+
+		<div class="layout" style="background: url(./img/fundopag.png);">
+			<div class="fundoWidget">
+				<div class="widgets">
+					<div class="fundoArroba">
+						
+					</div>
+					<center>
+					<div class="contContato">
+						<center>
+						<table class="tbContato">
+                			<tbody>
+                   				<tr>
+                    				<td colspan="2" align="center" >
+                        				Fone:(11)2463-3900 <br> secretaria@cvdm.com.br<br>
+                        			</td>
+                    			</tr>
+                    			<tr>    
+                        		<td colspan="2">
+                        			<div id="load" style="display:none; background:url(img/load.gif) rgba(255,255,255,1.00) center no-repeat; height:40px">
+                    				Enviando.....
+                   					</div>
+                       			</td>
+                    			</tr>
+                				<tr>
+                       			<td colspan="2" align="center">
+                        			<input type="text" name="nome" id="nome" class="fcs" placeholder="NOME">
+                        		</td>
+                    			</tr>
+                    			<tr>
+                        		<td colspan="2" align="center">
+                        <input type="tel" name="fone" id="fone" class="fcs" placeholder="TELEFONE">
+                        </td>
+                    </tr>
+                    <tr>
+
+                        <td colspan="2" align="center">
+                        <input type="email" name="email" id="email" class="fcs" placeholder="E-MAIL">
+                        </td>
+                    </tr>
+                    <tr>
+
+                        <td colspan="2" align="center">
+                        <textarea name="mensagem" id="mensagem" class="fcs" placeholder="MENSAGEM"></textarea>
+                        </td>
+                    </tr>
+                    <tr>
+                    	<td>
+                        Área de interesse:
+                        </td>
+                        <td>
+                        <div style="display:block; float:left; width:50%">
+                        	<input type="checkbox" name="interesse" value="secretaria">Secretaria
+                        </div>
+                        <div style="display:block; float:left; width:50%">
+                        	<input type="checkbox" name="interesse" value="pedagogico">Pedagógico
+                        </div>    
+                        <div style="display:block; float:left; width:50%">
+                        	<input type="checkbox" name="interesse" value="diretoria">Direção
+                        </div>
+                        <div style="display:block; float:left; width:50%">
+                        	<input type="checkbox" name="interesse" value="financeiro">Financeiro
+                        </div>    
+                        
+                        </td>
+                    </tr>
+                    <tr>
+                    <td colspan="2" align="center">
+                    <button style="margin:10px;padding:6px; width:50%; cursor:pointer; border:solid 1px #fff; background-color:rgba(30,155,153,1.00); color:rgba(255,255,255,1.00); border-radius: 25px;">Enviar</button>
+                    
+                    </td>
+                    </tr>
+                		</tbody>
+            		</table>
+            		</center>
+				  </div>
+				  </center>
+				</div>
+			</div>
+		</div>
+     <center>
+		<div  class="redeSocial">
+
+		 <div class="redeSocialContent">
+			<div class="layout">
+				<iframe id="face" src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fcolegiovm&tabs=timeline&width=450&height=500&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" width="450" height="450" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
+				<iframe id="MbFace" src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fcolegiovm&tabs=timeline&width=345&height=500&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" width="345" height="500" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
+				<!-- InstaWidget -->
+				<iframe id="c67eb42647b562e8f79b805b09fb650d490acb4dc0aaf65b59a3060e23aa28da" style="border: 0px;width: 300px;height: 479px;padding: 0px;" scrolling="no" frameborder="no" src="https://instawidget.net/embed?u=c67eb42647b562e8f79b805b09fb650d490acb4dc0aaf65b59a3060e23aa28da"></iframe>
+			</div>
+		 </div>
+		</div>
+	</center>	
+		<div class="layout" style="background: url(./img/fundopag.png);">
+			<center>
+				<div style="padding-top: 27px"><center><h1>ONDE ESTAMOS</h1></center>
+					<iframe id="map" height="450" width="945" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com.br/maps?f=q&amp;hl=pt-BR&amp;geocode=&amp;q=Rua+Dona+Antônia,+1288+-+Gopouva+-+Guarulhos+-+SP&amp;sll=-14.179186,-50.449219&amp;sspn=71.686975,157.5&amp;ie=UTF8&amp;s=AARTsJoODSfQWoVGJJnURA1rcL6t9edlug&amp;ll=-23.468521,-46.544094&amp;spn=0.031492,0.047207&amp;z=14&amp;output=embed"></iframe>
+					<iframe id="MbMap" height="500" width="345" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com.br/maps?f=q&amp;hl=pt-BR&amp;geocode=&amp;q=Rua+Dona+Antônia,+1288+-+Gopouva+-+Guarulhos+-+SP&amp;sll=-14.179186,-50.449219&amp;sspn=71.686975,157.5&amp;ie=UTF8&amp;s=AARTsJoODSfQWoVGJJnURA1rcL6t9edlug&amp;ll=-23.468521,-46.544094&amp;spn=0.031492,0.047207&amp;z=14&amp;output=embed"></iframe>
+				</div>
+			<center>
+		</div>				
+			<center><div class="roleta" id="roleta"></div></center>
+
+			<div id="rodape" class="rodape">
+			 <div class="rodapeAll">
+				<div id="rodape-itemsA" class="rodape-items"><center><p>Mapa do Site</p></center>
+                  <ul class="ulRodape">
+                  	<li><a href="colegio.html">QUEM SOMOS</a></li>
+		 			<li><a href="educacaoinfantil.html">ED. INFANTIL</a></li>
+		 			<li><a href="ensinofundamental.html">ED. FUNDAMENTAL</a></li>
+		 			<li><a href="ensinomedio.html">EN. MÉDIO</a></li>
+                  </ul>
+				</div>
+				<div id="rodape-items" class="rodape-items"><center><p>Área Restrita</p></center>
+					<center>
+					<div class="login-rodape">
+		  				<form name="f2" action="XxXxXxXxXxXxXxXx" style="display: flex; flex-direction: column;">
+		  					<input type="text" name="cod" placeholder="Login">
+		  					<input type="password" name="codigo" placeholder="Senha">
+		  					<input type="hidden" name="niv_usu" value="1">
+		  					<button id="buttonAcessar">Acessar</button>
+		  				</form>
+		  				<div class="endMobile">
+		  					<center>
+							<p>Contato</p>
+							(11) 2463-3900<br>
+							Rua Dona Antônia, 1288<br>
+							Gopouva – Guarulhos SP
+							</center>
+						</div>
+				    </center>
+				</div>
+				<div id="rodape-itemsC" class="rodape-items">
+					<center>
+					<p>Contato</p>
+					(11) 2463-3900<br>
+					Rua Dona Antônia, 1288<br>
+					Gopouva – Guarulhos SP
+					</center>
+				</div>
+            </div>
+		</div>
+		<div class="vt" id="bC"><center><h1 style="margin-top: 0px;">^</h1></center></div>
+</body>
+</html>

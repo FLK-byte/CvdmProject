@@ -1,0 +1,186 @@
+.fundo{
+		  margin-bottom: 0px;
+		}
+		.contentQcs {
+    		padding: 30px 0;
+			background-image: url("../img/fundopag.png");
+		}
+		.fundoQcs {
+    		background-image: url();
+    		background-attachment: fixed;
+    		background-repeat: no-repeat;
+    		background-size: cover;
+    		background-position: center 0px;
+			background: url(../img/fundopag.png);
+			background-attachment: fixed;
+		}
+		.qcs {
+    		display: flex;
+    		flex-direction: column;
+    		width: 1111px;
+    		margin: auto;
+		}
+		.quadro{
+			font-family: 'Poppins';
+   		 	font-size: 12pt;
+    		padding: 30px;
+    		box-shadow: 0px 0px 0px 0px #fbfbfb; 
+    		text-align: justify;
+			width:75vw;
+			margin: 0 auto;
+			
+		}
+.fundoImg{
+    background-attachment: fixed;
+    position: absolute;
+    width: 100%;
+    min-height: 100%;
+    opacity: 1;
+    background-image: url(../img/faxada.jpg);
+    z-index: -1;
+    background-size: cover;
+}
+		.contContato{
+			position: inherit;
+			padding-left: 50px;
+		}
+		.layout{
+			width:100%;
+			justify-content: center;
+    		display: flex;
+		}
+		.evntsClg{
+			padding-top: 15px;
+			width: 100%; 
+			height:290px; 
+			display: flex;
+			flex-direction: row;
+			justify-content: space-between;
+		}
+		.ContevntsClg{
+ 			color: white;
+    		font-size: 14pt;
+    		background-image: linear-gradient(#000000, #ffff00);
+    		width: 200px;
+    		text-align: center;
+    		box-shadow: 3px 3px 2px grey;
+			opacity:0;
+			transform: translate(80px,0);
+			-webkit-transform:translate(80px,0);
+			margin: 0px;
+		}
+		.imgAtividadeExtra{
+			transition: 1s all .9s;
+			height: 315px;
+			opacity:0;
+			transform: translate(80px,0);
+			-webkit-transform:translate(80px,0);
+			padding-top: 30px;
+		}
+		#ImgA{
+            transition: all .5s;
+		}
+		#ImgB{
+            transition: all 1s;
+		}
+		#ImgC{
+            transition: all 1.5s;
+		}
+		#ImgD{
+            transition: all 2s;
+		}
+		#ImgE{
+            transition: all 2.5s;
+		}
+.tituloPagina{
+	    color: #ffdf00;
+    font-size: 24pt;
+    text-shadow: 1px 1px 1px #000000;
+    margin-bottom: 10px;
+}
+		.parteSuperiorQuadro{
+			display: flex;
+			justify-content: space-between;
+		}
+		#textoParteSuperiorQuadro{
+			width: 500px;
+			font-size:10pt;
+		}
+        #textoParteSuperiorQuadro{
+			width: auto;
+	}
+	#textoParteSuperiorQuadro span:nth-child(even){
+		transition: 1s all .3s;
+	}
+	#textoParteSuperiorQuadro span:nth-child(odd) {
+		transition: 1s all .4s;
+	}
+	#textoParteSuperiorQuadro span{
+		display:inline-block;
+		opacity: 0;
+		-ms-transform:translate(-50px,0px);
+		transform:translate(-50px,0px);
+	}
+	
+	#textoParteSuperiorQuadro span.open{
+		opacity: 1;
+		-ms-transform:translate(0px,0px);
+		transform:translate(0px,0px);
+	}
+	
+		.contContato{
+			display: block;
+		}
+		#MbMap{
+			width: 345px;
+		}
+@media only screen and (max-width: 700px){
+	.qcs{
+    	width: 90vw;
+    	margin-right: auto;
+    	margin-left: auto;
+	}
+	.quadro{
+		padding: 0px;
+	}
+	.parteSuperiorQuadro{
+		display: block;
+		width: auto;
+	}
+	.eventsClg{
+		justify-content: space-between;
+    	flex-wrap: wrap;
+	}
+	
+	.imgAtividadeExtra{
+		height: 190px;
+		padding-top: 0px;
+	}
+	.ContevntsClg{
+		margin: 5px;
+	}
+	.evntsClg{
+		justify-content: center;
+		flex-wrap: wrap;
+		height: auto;
+	}
+	
+	.contContato{
+		display: none;
+	}
+	.contentQcs{
+		padding: 0px 0;
+	
+	}
+	#MbMap{
+		width: auto;
+	}
+	.quadro{
+		text-align: initial;
+	}
+	
+}
+
+
+
+

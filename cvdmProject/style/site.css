@@ -1,0 +1,787 @@
+/* HOME */
+.body{
+	margin: 0;
+	font-family: 'Poppins';
+	overflow-x: hidden;
+}
+.mestre{
+	align-items: center;
+	background-color: #FFFFFF;
+}
+.fundo{
+	background-position: center 0px;
+	background-size: cover;
+	height: 100vh;
+	margin-top: 0;
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+	position: relative;
+	z-index: 101;
+}
+
+		.fundo::after{
+			content: '';
+		    background-color: rgba(36,36,36,.5);
+		    top: 0;
+		    bottom: 0;
+		    position: absolute;
+		    left: 0;
+		    right: 0;
+		    z-index: -1;
+		}
+
+		.titlePag{
+			position: absolute;
+			left: 0;
+			top: 50%;
+			width: 100%;
+			text-align: center;
+			font-size: 80px;
+			color: white;
+    		font-weight: 900;
+			text-shadow: 1px 1px 15px black;
+		}
+
+		.layout{
+			background-position: center bottom;
+			background-attachment: fixed;
+			background-repeat: no-repeat;
+			width: 100vw;
+			justify-content: center;
+    		display: inline-flex;
+    		flex-direction: row;
+			margin-right: auto;
+			margin-left: auto;
+			background-size: contain;
+		}
+
+		.lema{
+			justify-content: flex-end;
+    		flex-direction: row;
+   		 	width: 945px;
+    		display: inline-flex;
+    		text-align: justify;
+    		font-size: 20px;
+    		color: #484848;
+    		min-height: 310px; /*399*/
+    		max-height: 315px; /*404*/
+		}
+
+		#txtLema{
+			align-self: center;
+			width: 517px;
+			color:white;
+			font-weight:bold;
+		}
+
+		#nomeLema{
+			color:yellow;
+		}
+		.fundoQcs{
+			background-image: url(../img/faxada.jpg);
+			background-attachment: fixed;
+			background-repeat: no-repeat;
+			background-size: cover;
+			background-position: center 0px;
+		}
+		
+        .contentQcs{
+        	padding:30px 0;
+        	background-color: rgba(255,255,255,0.3) 
+        }
+		.qcs{
+			display: flex;
+			flex-direction: column;
+			width: 945px;
+			margin: auto;
+		}
+		.qc1,.qc3,.qc2{
+			display: inline-flex;
+     		flex-direction: row-reverse;
+     		padding: 10px;
+     		margin-bottom: 80px;
+     		align-items: stretch;
+
+		}
+		.qc2{
+			flex-direction: row;
+		}
+
+		.quadroQC{
+			background-color: #fff;
+    		display: inline-flex;
+    		flex-direction: row-reverse;
+    		width: 700px;
+   			padding: 30px;
+    		box-shadow: 3px 3px 10px 0px #bdbdbd;
+		}
+		.quadroQC div{
+			padding:0 5px;
+		}
+		.qc2{
+     		flex-direction: row;
+		}
+       
+		.qc1 div,.qc3 div, .qc2 div{
+			text-align: justify;
+    		font-size: 12pt;
+    		padding-left: 30px;
+    		min-height: 100%;
+		}
+
+		#imgQC1,#imgQC3,#imgQC2{
+			transition: all .5s;
+			opacity:0;
+			transform: translate(80px,0);
+			-webkit-transform:translate(80px,0);
+		}
+		#imgQC2{
+			transform: translate(-80px,0);
+			-webkit-transform:translate(-80px,0);
+		}
+
+		#txtQC1,#txtQC2,#txtQC3{
+			transition: all .5s;
+			opacity:0;
+			transform: translate(80px,0);
+			-webkit-transform:translate(80px,0);
+		}
+		#txtQC2{
+			transform: translate(-80px,0);
+			-webkit-transform:translate(-80px,0);
+		}
+		
+		.widgetsTitle{
+			margin-top: 2.5rem;
+			padding-bottom: 25px;
+			text-align: center;
+			font-size: 35px;
+			color: white;
+			font-weight: bold;	
+			color: black;
+		}
+
+		.widgets{
+			width: 945px;
+			display:inline-flex;
+			flex-wrap: nowrap;
+			padding: 80px 0px;
+			flex-direction: row;
+		}
+
+		#face{
+			padding-right: 45px;
+
+		}
+
+		.top{
+	   		display: inline-flex;
+   		    position: fixed;
+   		    flex-direction: row;
+			justify-content: space-between;
+    		left: 0;
+    		top: 0;
+    		margin: 0;
+    		width: 100%;
+    		height: 101px;
+    		z-index: 102;
+    		background-color: rgba ;
+    		-webkit-transition: all 0.25s;
+    		transition: all .25s;
+			padding-bottom: 8px;
+			
+			
+		}
+
+		.top.ative{
+			opacity: 1;
+			box-shadow: 0px 3px 8px 1px grey;
+			border-bottom: 2px solid white;
+		}
+
+
+		.top::after{
+			content: '';
+			background: url(../img/fundo_banner.png) no-repeat;
+		    background-color: #363636;
+		    top: 0;
+		    bottom: 0;
+		    position: absolute;
+		    left: 0;
+		    right: 0;
+		    z-index: -1;
+		    transition: all .25s;
+		    opacity: 0;
+
+
+		}
+
+		.top.ative::after{
+			opacity: 1;
+		}
+
+		.opcoes a,.rodape-items a{
+		  	text-decoration: none;
+    		font-weight: bold;
+   		 	color: white;
+    		padding-right: 16px;
+    		font-size: 12pt;
+		}
+
+		.opcoes{
+			flex-wrap: wrap;	
+		    padding-top: 66px;
+    		color: black;
+    		font-size: 18px;
+
+		}
+		
+		.rodape{
+			display: inline-flex;
+			position: fixed;
+			bottom: 0;
+			float: left;
+			left: 0;
+			width: 100%;
+			height: 10px;
+			background-color: transparent;
+			-webkit-transition: all 0.5s;
+    		transition: all 0.5s;
+		}
+		.branco, .colorido{
+			width: 110px;
+			position: absolute;
+			display: none;
+			-webkit-transition: all 0.5s;
+    		transition: all 0.8s;
+    		opacity: 0;
+		}
+
+		.branco.ative, .colorido.ative{
+           display: inline-block;
+           opacity: 1;
+		}
+
+		.foto{
+			width: 160PX;
+		}
+
+		.login{
+			width: 170px;
+			height: 100px;
+			padding-top: 3px;
+			margin-bottom: 0;
+		}
+
+		.login input,.login-rodape input{
+			height: 15px;
+    		width: 150px;
+    		margin-bottom: 5px;
+    		background-color: transparent;
+    		border: 2px solid darkorange;
+    		border-radius: 25px;
+    		padding: 5px 3px;
+		}
+
+		.login input::placeholder {
+    		color: #fff;
+    		opacity: 1; /* Firefox */
+		}
+
+		:-ms-input-placeholder { /* Internet Explorer 10-11 */
+   			color: #fff;
+		}
+
+		::-ms-input-placeholder { /* Microsoft Edge */
+   			color: #fff;
+		}
+
+		.fcs{
+			padding: 7px;
+			border: 2px solid black;
+			border-radius: 25px;
+			display: inline-flex;
+
+		}
+
+		#buttonAcessar,#buttonAcessar-rodape{
+			border: 2px solid yellow;
+			border-radius: 25px;
+			background-color: yellow;
+			height: 25px;
+			width: 160px;
+			margin: 0;
+			padding: 0;
+			color: black;
+		}
+		.roleta{
+          display: inline-flex;
+    	flex-wrap: nowrap;
+    	flex-direction:row-reverse;
+    	position: relative;
+    	width: 1349px;
+    	max-width: 1349px;
+    	min-height: 266.66px;
+    	left: 0px;
+    	overflow: hidden;
+    	bottom: -20px;
+
+		}
+		.img-carrossel{
+           width: 337px;
+           position: absolute;
+           -webkit-transition: left 0.5s;
+           border-radius: 20px 20px 20px 20px;
+		}
+
+		.rodape{
+		justify-content: center;
+		width: 100vw;
+    	height: 280px;
+    	position: relative;
+    	bottom: 0;
+    	float: left;
+   		margin: 0;
+    	padding: 0;
+    	background-color: #363636;
+		}
+
+		.rodape-items{
+		height: 210px;
+    	border-width: 2px;
+    	border-style: dashed;
+    	border-color: rgba(42,42,42,1.00);
+    	border-top: 0px;
+    	border-bottom: 0px;
+    	color: rgba(255,142,0,1.00);
+   	    float: left;
+    	margin-top: 30px;
+    	width: 315px;
+   	    padding-left: 25px;
+   	    padding-right: 25px;
+		}
+		
+		.rodapeAll{
+			display: inline-flex;
+		}
+		
+		.ulRodape{
+
+		}
+
+		.vt {
+            position: fixed;
+            bottom: 2em;
+            right: 2em;
+            text-decoration: none;
+            color: white;
+            background-color: rgba(0, 0, 0, 0.3);
+            font-size: 12px;
+            padding: 1em;
+            display: block;
+            width:25px;
+            height:25px;
+            vertical-align: middle;
+            z-index: 100;
+        }
+        .vt:hover {
+            background-color: rgba(0, 0, 0, 0.6);
+        }
+
+        .contentQcs h2{
+    		color: #848181;
+			font-size: 25pt;
+			margin: 0;
+			margin-top: 50px;
+        }
+        
+        .fundoArroba{
+        	background: url(../img/arroba.png) no-repeat;
+   	 		min-width: 435px;
+    		height: 435px;
+    		background-size: contain;
+        }
+        .contContato{
+        	position: absolute;
+        	right: 253px;
+        }
+        .tbContato{
+        	width:450px;
+        	background-color: transparent;height: 450px;
+        	border-radius: 25px;
+        }
+
+    	.redeSocial{
+        	background: url(../img/network.jpg);
+    		background-repeat-y: no-repeat;
+    		width: 100vw;
+    		background-size: contain;
+    		background-attachment: fixed;
+    		background-repeat: no-repeat;
+    		background-size: cover;
+    		background-position: center 0px;
+    	}
+
+    	.redeSocialContent{ 
+    		padding: 30px 0;
+    		background-color: rgba(255,255,255,0.70);
+    	}
+
+    	#face{
+    		border:none;
+    		overflow:hidden;
+    	}
+
+    	#MbFace{
+    		display: none;
+    	}
+
+    	#MbMap{
+    		display: none;
+    	}
+    	.endMobile{
+    		display: none;
+    	}
+
+    	.quadroQC a{
+    		color: grey;
+    	}
+    	#c67eb42647b562e8f79b805b09fb650d490acb4dc0aaf65b59a3060e23aa28da{
+    		margin-top: 0;
+    	}
+@media only screen and (max-width: 700px) {
+		.fundo{
+			background-position: center 0px;
+			background-size: 60%;
+			height: 100vh;
+			margin-top: 0;
+			background-attachment: fixed;
+			background-repeat: no-repeat;
+			position: relative;
+			z-index: 101;
+		}
+
+	    #txtLema{
+	    	width:auto;
+	    }
+	    .widgets{
+	    	width:auto;
+	    }
+		.layout{
+			width: 100vw;
+			margin-right: auto;
+			margin-left: auto;
+			overflow: hidden;
+		}
+		.qcs{
+    		display: flex;
+    		flex-direction: column;
+    		width: 100vw;
+    		margin: auto;
+		}
+    	.roleta{
+        	display: inline-flex;
+    		flex-wrap: nowrap;
+    		flex-direction:row-reverse;
+    		position: relative;
+    		width: 331.19px;
+    		min-height: 266.66px;
+    		left: 0px;
+    		overflow: hidden;
+    		bottom: -20px;
+
+		}
+		.img-carrossel{
+           width:331.19px;
+           position: absolute;
+           -webkit-transition: left 0.5s;
+           border-radius: 20px 20px 20px 20px;
+		}
+		#rodape{
+			overflow: hidden;
+		}
+		#map{display:none;}
+		.top{
+	   		display: inline-flex;
+    		position: fixed;
+    		flex-direction: row;
+    		left: 0;
+    		top: 0;
+    		margin: 0;
+    		width: 100vw;
+    		height: 105px;
+    		z-index: 102;
+    		background-color: rgba;
+    		-webkit-transition: all 0.25s;
+    		transition: all .25s;
+    		padding-bottom: 8px;
+		}
+		.top .menuB{
+			float: right;
+    		color: white;
+    		font: normal 76px/50px "responsivenav";
+    		white-space: pre;
+    		max-width: 100px;
+    		border: white;
+    		left: auto;
+    		padding-top: 14px;
+    		right: 20px;
+    		position: absolute;
+		}
+		.top .menuB::before{
+			content:'\2261';
+		}
+		#chkMenu:checked ~ .opcoes,#chkMenu:checked ~ .login{
+			left: 0vw;
+		}
+		#branco.ative{
+			width: 113px;
+		}
+		#colorido.ative{
+			width: 113px;
+		}
+		.opcoes{
+			position: fixed;
+			display: inline-flex;
+			flex-direction: column;
+			top: 0;
+			left: -50vw;
+			height: 100vh;
+			width: 50vw;
+			background-color: rgba(0,0,0,0.8);
+			padding-top: 120px;
+			transition: all 0.75s;
+		}
+
+		.opcoes::before{
+			content:' \2261 Menu';
+			color:white;
+			font: normal 45px/55px "responsivenav";
+			white-space: pre;
+
+		}
+		.opcoes a{
+			padding: 10px;
+    		border-left: 12px solid white;
+    		margin-left: 0px;
+    		box-shadow: 0 0px 7px 0px grey;
+   		 	margin-bottom: 5px;
+		}
+		.login {
+			transition: all 0.75s;
+			left: -50vw;
+    		width: 50vw;
+    		height: 46px;
+   			padding-top: 0px;
+    		margin-bottom: 0;
+    		position: fixed;
+    		display: inline-flex;
+    		flex-direction: column;
+    		top: 0;
+		}
+		.login input{
+			color: white;
+			float: none;
+			height: 15px;
+    	    width: 44vw;
+     		margin-top: 8px;
+     		margin-bottom: 5px;
+     		background-color: transparent;
+     		border: 2px solid darkorange;
+     		border-radius: 25px;
+     		padding: 5px 3px;
+		}
+		#buttonAcessar{
+			float: none;
+			border: 0;
+    		border-radius: 25px;
+    		background-color: yellow;
+    		min-height: 29px;
+    		width: 110px;
+    		margin: 0;
+    		padding: 0;
+    		margin-top: 4px;
+    		color: black;
+		}
+		.fundo{
+			width: 100vw;
+    		background-position: center 0px;
+    		background-size: cover;
+    		height: 100	vh;
+    		margin-bottom: 0px;
+    		margin-top: 0;
+    		background-attachment: fixed;
+    		background-repeat: no-repeat;
+    		position: relative;
+    		z-index: 101;
+		}
+		.titlePag{
+			    position: absolute;
+    		left: 0;
+    		top: 50%;
+    		width: 100vw;
+    		text-align: center;
+    		font-size: 26px;
+    		color: white;
+    		font-weight: 900;
+    		text-shadow: 1px 1px 15px black;
+		}
+		.layout{
+			width: 100vw;
+    		margin-right: auto;
+    		margin-left: auto;
+    		overflow: hidden;
+    		flex-wrap: wrap;
+		}
+		.lema{
+    		text-align: justify;
+    		font-size: 14px;
+    		color: #484848;
+    		margin-bottom: 0px;
+    		width: auto;
+    		padding: 10px 31px;
+    		min-height: auto;
+    		max-height: auto;
+
+		}
+		.logoLema{
+			display: none;
+		}
+		.fundoQcs{
+			background-image: url(../img/faxada.jpg);
+    		background-attachment: fixed;
+    		background-repeat: no-repeat;
+    		background-size: cover;
+    		width:100vw;
+    		background-position: center 0px;
+		}
+		.contentQcs{
+			width: 100vw;
+			padding:0;
+		}
+		.qcs{
+			display: flex;
+    		flex-direction: column;
+    		width: 100vw;
+		}
+		.qc1, .qc2, .qc3{
+			flex-direction: column;
+			margin:0px; 
+			padding: 0px;
+		}
+		.qc1 div, .qc3 div{
+			text-align: initial;
+			font-size: 14px;
+			min-height: 30vh;
+			flex-direction: column-reverse;
+			padding: 10px;
+		}
+		.qc2 div{
+			flex-direction: column;
+			text-align: initial;
+			font-size: 14px;
+			padding: 10px;
+		}
+		#imgQC1,#imgQC3,#imgQC2{
+			display: none;
+			width:290px;
+		}
+		#txtQC1,#txtQC3,#txtQC2{
+			display: none;
+		}
+		.quadroQC{
+			background-color: #fff;
+			flex-direction: row-reverse;
+			width: 100vw;
+    		padding: 0;
+    		box-shadow: 3px 3px 10px 0px #bdbdbd;
+		}
+		.fundoArroba{
+			min-width: 0px;
+		}
+		.contContato{
+			left: 0;
+			position: relative;
+		}
+		.tbContato{
+			max-width: 100vw;
+		}
+		#face{
+			display: none;
+		}
+		#MbFace{
+    		display: block;
+    	}
+    	#MbMap{
+    		display: block;
+    	}
+    	.img-carrossel{
+    	}
+    	.endMobile{
+    		display: block;	
+    		font-size: 13px;
+    	}
+    	.roleta{
+    		width: 337px;
+    	}
+    	#rodape-itemsA{
+    		display: none;
+    	}
+    	#rodape-itemsC{
+    		display: none;
+    	}
+    	.rodapeAll {
+   			padding-left: 0;
+		}
+		.rodape-items{
+			width: 100vw;
+			padding-left: 0;
+			padding-right: 0;
+			margin-top: 0;
+		}
+		#c67eb42647b562e8f79b805b09fb650d490acb4dc0aaf65b59a3060e23aa28da{
+			margin-top: 30px;
+		}
+
+
+}/* ENSINO MÉDIO */
+.quadroEM{
+	background-color: #fff;
+    display: flex;
+    flex-direction: row;
+   	padding: 30px;
+    box-shadow: 3px 3px 10px 0px #bdbdbd;
+}
+.imgEM1{
+	box-shadow: 2px 2px 5px grey;
+	height: 220px;
+	width: 300px;
+}
+.imgEM2{
+	margin-right: 18px;
+	box-shadow: 2px 2px 5px grey;
+	height: 220px;
+	width: 300px;
+}
+.txtEM{
+	display: block;
+	flex-direction: column;
+	text-align: justify;
+	width: 300px;
+	font-size: 10pt;
+	margin: 18px;
+}
+.contEM{
+	display: flex;
+	flex-direction: column;
+	width: 945px;
+	margin: auto;
+}
+.contEM2{
+	display: flex;
+	flex-direction: column;
+	width: 885px;
+	margin: auto;
+}
+
+
